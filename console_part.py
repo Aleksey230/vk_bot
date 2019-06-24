@@ -6,14 +6,16 @@ from settings import signs
 import random
 
 def do_console():
-    
+    coins = {'balance': 0, 'novice': 500, 'lover': 1000, 'master':2000}
     hard = 1
     answer = 0
     CheckTrue = 0
     user_hard = 'новичок'    
     while True:
         UserMessage = input('введите сообщение ')
-        if UserMessage.lower() == 'сдаюсь':
+        if UserMessage.lower() == 'баланс':
+            print('Ваш баланс ' + str(coins['balance']) + ' mathcoins')
+        elif UserMessage.lower() == 'сдаюсь':
             print(answer)
         elif UserMessage.lower() == 'новичок':
             user_hard = 'новичок'
@@ -45,6 +47,7 @@ def do_console():
             user_hard = 'новичок'
             hard = 1
             CheckTrue = 0
+            coins = {'balance': 0, 'novice': 500, 'lover': 1000, 'master': 2000}
             gen = novice_gen(hard)
             print(gen[0])
             answer = gen[1]                                            
@@ -63,14 +66,23 @@ def do_console():
                     print("Получен " + str(len(str(hard))) + " уровень")
                     print(str(CheckTrue) + '/10 EXP' )
                     if user_hard == 'новичок':
+                        print('Получено ' + str(coins['novice'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['novice'] / 100 * len(str(hard))
+                        coins['novice'] -= coins['novice'] / 100 * len(str(hard))
                         gen = novice_gen(hard)
                         print(gen[0])
                         answer = gen[1]
                     elif user_hard == 'любитель':
+                        print('Получено ' + str(coins['lover'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['lover'] / 100 * len(str(hard))
+                        coins['lover'] -= coins['lover'] / 100 * len(str(hard))
                         gen = lover_gen(hard)
                         print(gen[0])
                         answer = gen[1]                      
-                    elif user_hard == 'мастер':    
+                    elif user_hard == 'мастер':
+                        print('Получено ' + str(coins['master'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['master'] / 100 * len(str(hard))
+                        coins['master'] -= coins['master'] / 100 * len(str(hard))
                         gen = master_gen(hard)
                         print(gen[0])
                         answer = gen[1]
@@ -79,14 +91,23 @@ def do_console():
                     print('Правильно!')
                     print(str(CheckTrue) + '/10 EXP' )
                     if user_hard == 'новичок':
+                        print('Получено ' + str(coins['novice'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['novice'] / 100 * len(str(hard))
+                        coins['novice'] -= coins['novice'] / 100 * len(str(hard))
                         gen = novice_gen(hard)
                         print(gen[0])
                         answer = gen[1]
                     elif user_hard == 'любитель':
+                        print('Получено ' + str(coins['lover'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['lover'] / 100 * len(str(hard))
+                        coins['lover'] -= coins['lover'] / 100 * len(str(hard))
                         gen = lover_gen(hard)
                         print(gen[0])
-                        answer = gen[1]                    
+                        answer = gen[1]
                     elif user_hard == 'мастер':
+                        print('Получено ' + str(coins['master'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['master'] / 100 * len(str(hard))
+                        coins['master'] -= coins['master'] / 100 * len(str(hard))
                         gen = master_gen(hard)
                         print(gen[0])
                         answer = gen[1]

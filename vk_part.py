@@ -105,23 +105,23 @@ def do_vk():
                                                 example2['EXP'] = 0
                                                 vk.method('messages.send', {'user_id':event.user_id,'message': 'Правильно!', 'random_id':0})
                                                 if example2['user_hard'] == 'новичок':
+                                                    coins = novice / 100 * len(str(example2['hard']))
+                                                    balance += novice / 100 * len(str(example2['hard']))
+                                                    novice -= novice / 100 * len(str(example2['hard']))
                                                     gen = novice_gen(example2['hard'])
                                                     my_message = gen[0]
                                                     answer = gen[1]
-                                                    balance += novice / 100 * len(str(example2['hard']))
-                                                    novice -= novice / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(novice / 100 * len(str(example2['hard'])))
                                                 elif example2['user_hard'] == 'любитель':
+                                                    coins = lover / 100 * len(str(example2['hard']))
                                                     balance += lover / 100 * len(str(example2['hard']))
                                                     lover -= lover / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(lover / 100 * len(str(example2['hard'])))
                                                     gen = lover_gen(example2['hard'])
                                                     my_message = gen[0]
                                                     answer = gen[1]   
                                                 elif example2['user_hard'] == 'мастер':
-                                                    balance += lover / 100 * len(str(example2['hard']))
-                                                    lover -= lover / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(lover / 100 * len(str(example2['hard'])))
+                                                    coins = master / 100 * len(str(example2['hard']))
+                                                    balance += master / 100 * len(str(example2['hard']))
+                                                    master -= master / 100 * len(str(example2['hard']))
                                                     gen = master_gen(example2['hard'])
                                                     my_message = gen[0]
                                                     answer = gen[1]
@@ -135,26 +135,24 @@ def do_vk():
                                         else:
                                                 example2['EXP'] += 1
                                                 vk.method('messages.send', {'user_id':event.user_id,'message': 'Правильно!', 'random_id':0})
-                                                example = [random.randrange(1, (10 * example2['hard'])), random.randrange(1, (10 * example2['hard']))]
-                                                sign = random.choice(signs)
                                                 if example2['user_hard'] == 'новичок':
+                                                    coins = novice / 100 * len(str(example2['hard']))
+                                                    balance += novice / 100 * len(str(example2['hard']))
+                                                    novice -= novice / 100 * len(str(example2['hard']))
                                                     gen = novice_gen(example2['hard'])
                                                     my_message = gen[0]
                                                     answer = gen[1]
-                                                    balance += novice / 100 * len(str(example2['hard']))
-                                                    novice -= novice / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(novice / 100 * len(str(example2['hard'])))
                                                 elif example2['user_hard'] == 'любитель':
+                                                    coins = lover / 100 * len(str(example2['hard']))
                                                     balance += lover / 100 * len(str(example2['hard']))
                                                     lover -= lover / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(lover / 100 * len(str(example2['hard'])))
                                                     gen = lover_gen(example2['hard'])
                                                     my_message = gen[0]
-                                                    answer = gen[1]   
+                                                    answer = gen[1]
                                                 elif example2['user_hard'] == 'мастер':
-                                                    balance += lover / 100 * len(str(example2['hard']))
-                                                    lover -= lover / 100 * len(str(example2['hard']))
-                                                    coins = Decimal(lover / 100 * len(str(example2['hard'])))
+                                                    coins = master / 100 * len(str(example2['hard']))
+                                                    balance += master / 100 * len(str(example2['hard']))
+                                                    master -= master / 100 * len(str(example2['hard']))
                                                     gen = master_gen(example2['hard'])
                                                     my_message = gen[0]
                                                     answer = gen[1]

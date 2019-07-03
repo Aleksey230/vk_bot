@@ -1,9 +1,6 @@
 from generator import novice_gen, lover_gen, master_gen
 from fractions import Fraction
-from decimal import Decimal, ROUND_HALF_UP
 from settings import svod
-from settings import signs
-import random
 
 def do_console():
     coins = {'balance': 0, 'novice': 500, 'lover': 1000, 'master':2000}

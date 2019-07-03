@@ -5,4 +5,3 @@ if mode.lower() == 'vk':
     do_vk()  
 elif mode.lower() == 'console':
     do_console()
- 

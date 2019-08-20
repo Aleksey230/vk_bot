@@ -43,3 +43,10 @@ def master_gen(hard):
         answer = Decimal(eval(str(example3[0]) + '/' + str(example3[1])))
         answer = answer.quantize(Decimal("1.0"), ROUND_HALF_UP)
     return [my_message, answer]
+def task_gen(hard):
+    example = [random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard))]
+    tasks = [['something1' + str(example[0]) + 'something2' + str(example[1]), exapmple[0] * example[1]]]
+    task = random.randrange(tasks)
+    my_message = task[0]
+    answer = task[1]
+    return [my_message, answer]

@@ -78,7 +78,7 @@ def do_vk():
                                 answer = gen[1]
                                 s = {'time': event.timestamp, 'user_id': event.user_id, 'message': event.text,
                                      'hard' : hard, 'EXP': checkTrue, 'to_me': True, 'user_hard': user_hard,
-                                     'balance': 0, 'novice': 500, 'lover': 1000, 'master': 2000,
+                                     'balance': 0, 'novice': 500, 'lover': 1000, 'master': 2000, 'task':2500,
                                      'novice_ac': 0, 'lover_ac': 0, 'master_ac': 0}
                                 collection.insert_one(s)
                                 a = {'time': event.timestamp, 'user_id': event.user_id, 'message': gen[0], 'answer': answer, 'by_me': True,}

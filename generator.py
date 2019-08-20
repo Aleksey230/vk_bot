@@ -11,7 +11,7 @@ def novice_gen(hard):
         answer = eval(str(example[0]) + str(sign) + str(example[1]))
     else:
         my_message = str(example[0]) + ' ' + str(sign) + ' ' + str(example[1])
-        answer = eval(str(example[0]) + '//' + str(example[1]))
+        answer = str(eval(str(example[0]) + '//' + str(example[1]))) +'(' +str(example[0] % example[1]) + ')'
     return [my_message, answer]
 def lover_gen(hard):
     example = [random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard)), random.randrange(1, (10 * hard))]

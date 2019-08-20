@@ -1,9 +1,9 @@
-from generator import novice_gen, lover_gen, master_gen
+from generator import novice_gen, lover_gen, master_gen, task_gen
 from fractions import Fraction
 from settings import svod
 
 def do_console():
-    coins = {'balance': 0, 'novice': 500, 'lover': 1000, 'master':2000}
+    coins = {'balance': 0, 'novice': 500, 'lover': 1000, 'master':2000, 'task':2500}
     hard = 1
     answer = 0
     CheckTrue = 0
@@ -36,6 +36,14 @@ def do_console():
             CheckTrue = 0
             gen = master_gen(hard)
             print('Выбран уровень сложности: мастер')
+            print(gen[0])
+            answer = gen[1]
+        elif UserMessage.lower() == 'задача':
+            user_hard = 'задача'
+            hard = 1
+            CheckTrue = 0
+            gen = novice_gen(hard)
+            print('Выбран уровень сложности: задачи')
             print(gen[0])
             answer = gen[1]
         elif UserMessage.lower() == 'помощь':
@@ -83,6 +91,13 @@ def do_console():
                         gen = master_gen(hard)
                         print(gen[0])
                         answer = gen[1]
+                    elif user_hard == 'задача':
+                        print('Получено ' + str(coins['task'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['task'] / 100 * len(str(hard))
+                        coins['task'] -= coins['task'] / 100 * len(str(hard))
+                        gen = novice_gen(hard)
+                        print(gen[0])
+                        answer = gen[1]
                 else:
                     CheckTrue += 1
                     print('Правильно!')
@@ -106,6 +121,13 @@ def do_console():
                         coins['balance'] += coins['master'] / 100 * len(str(hard))
                         coins['master'] -= coins['master'] / 100 * len(str(hard))
                         gen = master_gen(hard)
+                        print(gen[0])
+                        answer = gen[1]
+                    elif user_hard == 'задача':
+                        print('Получено ' + str(coins['task'] / 100 * len(str(hard))) + ' mathcoins')
+                        coins['balance'] += coins['task'] / 100 * len(str(hard))
+                        coins['task'] -= coins['task'] / 100 * len(str(hard))
+                        gen = novice_gen(hard)
                         print(gen[0])
                         answer = gen[1]
             else:
